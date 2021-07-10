@@ -15,9 +15,9 @@ function SideBar() {
     return (
         <>
 
-            <div className="sidebar">
+            <div className="sidebar my-2">
                 <div className="nav d-flex ">
-                    <img className="mx-3 p-1 my-2" src={BrandLogo} width={50} height={50} alt="CompanyLogo" />
+                    <img className="mx-2 p-1 my-2" src={BrandLogo} width={50} height={50} alt="CompanyLogo" />
                     <h3 className="brand-text py-3 text-muted" >Dynamic<span className="text-danger font-weight-bold">Dash</span></h3>
                 </div>
                 
