@@ -1,14 +1,25 @@
 import React from 'react'
 
-import VerticalBar from '../../chartTypes/VerticalBar'
+import SideBar from '../../Components/LandingPage/SideBar/SideBar'
+
+
 
 
 function LandingPage() {
     return (
         <div>
-            <VerticalBar/>
+            <div className="row">
+                <div className="col-md-5">
+                    <SideBar/>
+                </div>
+                <div className="col-md-7">
+
+                </div>
+            </div>
+            
         </div>
     )
 }
 
 export default LandingPage
+
