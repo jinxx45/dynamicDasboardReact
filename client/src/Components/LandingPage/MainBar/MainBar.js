@@ -7,7 +7,7 @@ import './MainBar.css'
 function MainBar() {
     return (
         <>
-            <div className="mainbar  py-3 d-flex align-items-center flex-column justify-content-center">
+            <div className="mainbar col-md-7  py-3 d-flex align-items-center flex-column justify-content-center">
                 <h1>Welcome to <span className="text-muted"> Dynamic</span><span className="text-danger">Dash</span></h1>
                 <p className="text-muted my-2">Analyse your Key Performance Indicators (KPI's)</p>
                 
