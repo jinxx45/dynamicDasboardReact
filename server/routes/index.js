@@ -7,7 +7,6 @@ router.get('/', (req, res) => {
 })
 
 
-
 //adding a New User
 router.post('/adduser',actions.addNew)
 
