@@ -1,0 +1,10 @@
+.user-card {
+  margin-top: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20rem;
+  background-color: antiquewhite;
+  height: 10rem;
+  padding: 10px;
+}

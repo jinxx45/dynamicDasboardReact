@@ -1,16 +1,14 @@
+import React from 'react'
+
+import SideBar from '../../Components/AdminDashboardPage/Sidebar/SideBar'
+import MainBar from '../../Components/UserManagement/MainBar/UserMain'
+
 import axios from 'axios'
-import React, { Component } from 'react'
 
-import './AdminDashboard.css'
-import SideBar from '../../Components/AdminDashboardPage/Sidebar/SideBar';
+import  { Component } from 'react'
 
-// import {Navbar,Container} from 'react-bootstrap'
-
-
-export default class AdminDashboard extends Component {
-
-
-  state={};
+export default class UserManagement extends Component {
+    state={};
   
 
     componentDidMount()
@@ -40,6 +38,7 @@ export default class AdminDashboard extends Component {
                 <>
     
                 <SideBar username = {this.state.user.userName}/>
+                <MainBar />
 
                 </>
             )
@@ -53,4 +52,3 @@ export default class AdminDashboard extends Component {
        
     }
 }
-

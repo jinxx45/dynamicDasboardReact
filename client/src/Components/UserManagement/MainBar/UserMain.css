@@ -1,0 +1,10 @@
+.mainbar-user-management {
+  position: relative;
+  margin-left: 18%;
+  padding: 2%;
+}
+
+.user-cards {
+  display: flex;
+  flex-wrap: wrap;
+}
