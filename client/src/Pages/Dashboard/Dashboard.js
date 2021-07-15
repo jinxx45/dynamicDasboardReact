@@ -3,7 +3,7 @@ import React from 'react'
 function Dashboard() {
     return (
         <div>
-            Hey man!
+            Dei saadha user eh
         </div>
     )
 }

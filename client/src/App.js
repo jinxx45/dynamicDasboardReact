@@ -11,8 +11,8 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 import LandingPage from './Pages/LandingPage/LandingPage.js'
-
 import Dashboard from "./Pages/Dashboard/Dashboard.js";
+import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard.js";
 
 
 export default function App() {
@@ -28,7 +28,10 @@ export default function App() {
             <About />
           </Route>
           <Route path="/dashboard">
-           <Dashboard/>
+          <AdminDashboard/>
+          </Route>
+          <Route path="/dasboard-admin">
+            <AdminDashboard/>
           </Route>
           <Route path="/">
             <LandingPage/>
