@@ -28,10 +28,10 @@ export default function App() {
             <About />
           </Route>
           <Route path="/dashboard">
-          <AdminDashboard/>
+          <Dashboard/>
           </Route>
-          <Route path="/dasboard-admin">
-            <AdminDashboard/>
+          <Route path="/dashboard-admin">
+           <AdminDashboard/>
           </Route>
           <Route path="/">
             <LandingPage/>

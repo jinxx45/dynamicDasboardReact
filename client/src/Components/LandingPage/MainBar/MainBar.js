@@ -10,7 +10,6 @@ import { useHistory } from 'react-router-dom';
 
 function MainBar() {
     const history = useHistory();
-
     const email = React.useRef();
     const password = React.useRef();
 
@@ -18,17 +17,25 @@ function MainBar() {
     {
         e.preventDefault();
         const data = {
-            name : email.current.value,
+            email : email.current.value,
             password : password.current.value
 
         }
 
-        axios.post('http://localhost:5000/authenticate',data).then(
+        axios.post('authenticate',data).then(
 
         res => {
-            console.log(res)
+          console.log(res)
           localStorage.setItem('token',res.data.token)
-          history.push('/dashboard')
+          if(res.data.userType === 'admin')
+          {
+              history.push('/dashboard-admin')
+          }
+          else
+            {
+                history.push('/dasboard')
+            }
+          
          
         }
             
@@ -41,14 +48,7 @@ function MainBar() {
             }
         )
 
-
-        
-
-        
-        
-        
     }
-
 
     return (
         <>
@@ -61,7 +61,7 @@ function MainBar() {
                 <form className="LoginForm" onSubmit={handleSubmit}>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email address</label>
-                    <input ref={email}  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+                    <input ref={email} type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
@@ -71,7 +71,7 @@ function MainBar() {
                     <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
                     <label class="form-check-label" for="exampleCheck1">Keep me Signed in</label>
                 </div>
-                <button type="submit" class="btn btn-primary">Sign In</button>
+                <button type="submit" class="btn btn-info">Sign In</button>
                 </form>
                 
                 

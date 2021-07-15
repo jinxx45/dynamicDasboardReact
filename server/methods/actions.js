@@ -36,7 +36,7 @@ var functions=
 
     authenticate: function (req, res) {
         User.findOne({
-            name: req.body.name
+            email: req.body.email
         }, function (err, user) {
                 if (err) throw err
                 if (!user) {
@@ -47,7 +47,8 @@ var functions=
                     user.comparePassword(req.body.password, function (err, isMatch) {
                         if (isMatch && !err) {
                             var token = jwt.encode(user, config.secret)
-                            res.json({success: true, token: token})
+                            
+                            res.json({success: true, token: token , userType:user.userType })
                         }
                         else {
                             return res.status(403).send({success: false, msg: 'Authentication failed, wrong password'})
@@ -62,7 +63,7 @@ var functions=
         if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
             var token = req.headers.authorization.split(' ')[1]
             var decodedtoken = jwt.decode(token, config.secret)
-            return res.json({success: true, msg: 'Hello ' + decodedtoken.name})
+            return res.json({success: true, userName:  decodedtoken.userName})
         }
         else {
             return res.json({success: false, msg: 'No Headers'})
