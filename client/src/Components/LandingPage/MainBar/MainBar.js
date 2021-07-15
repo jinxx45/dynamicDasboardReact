@@ -1,10 +1,55 @@
 import React from 'react'
+import axios from 'axios'
 
-import { Form , Button } from 'react-bootstrap'
+
+
 
 import './MainBar.css'
+import { useHistory } from 'react-router-dom';
+
 
 function MainBar() {
+    const history = useHistory();
+
+    const email = React.useRef();
+    const password = React.useRef();
+
+    const handleSubmit = e =>
+    {
+        e.preventDefault();
+        const data = {
+            name : email.current.value,
+            password : password.current.value
+
+        }
+
+        axios.post('http://localhost:5000/authenticate',data).then(
+
+        res => {
+            console.log(res)
+          localStorage.setItem('token',res.data.token)
+          history.push('/dashboard')
+         
+        }
+            
+              
+   
+        ).catch(
+            err => {
+                console.log(err);
+                console.log("Check the Username and Password");
+            }
+        )
+
+
+        
+
+        
+        
+        
+    }
+
+
     return (
         <>
             <div className="mainbar col-md-7  py-3 d-flex align-items-center flex-column justify-content-center">
@@ -12,27 +57,24 @@ function MainBar() {
                 <p className="text-muted my-2">Analyse your Key Performance Indicators (KPI's)</p>
                 
                 {/* Login Form */}
-                
-                <Form className="LoginForm d-flex flex-column  my-5">
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
-                    </Form.Group>
 
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
-                    </Form.Group>
-                    <Form.Group controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label="Keep me Signed In" />
-                    </Form.Group>
-                    <div className="loginButton align-items-center">
-                    <Button  variant="danger" type="submit">
-                        Sign In
-                    </Button>
-                    </div>
-                  
-                </Form>
+                <form className="LoginForm" onSubmit={handleSubmit}>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input ref={email}  class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"/>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input ref={password} type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"/>
+                </div>
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
+                    <label class="form-check-label" for="exampleCheck1">Keep me Signed in</label>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+                </form>
+                
+                
             </div>
             
         </>
