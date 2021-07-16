@@ -8,16 +8,18 @@ var functions=
 {
     addNew : function(req,res)
     {
-        if(!(req.body.email) || !(req.body.password) || !(req.body.userType))
+        if(!(req.body.email) || !(req.body.password) || !(req.body.userType) )
         {
             res.json({success : false , msg :'Enter all Fields'})
         }
         else
         {
             var newUser = User({
+                userName : req.body.userName,
                 email : req.body.email,
                 password : req.body.password,
-                userType : req.body.userType
+                userType : req.body.userType,
+                permission : req.body.permission,
             })
 
             newUser.save(function(err,newUser)

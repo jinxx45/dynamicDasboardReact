@@ -27,7 +27,7 @@ function MainBar() {
         res => {
           console.log(res)
           localStorage.setItem('token',res.data.token)
-          if(res.data.userType === 'admin')
+          if(res.data.userType === 'Administrator')
           {
               history.push('/dashboard-admin')
           }

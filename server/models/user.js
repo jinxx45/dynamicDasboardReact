@@ -16,6 +16,15 @@ var userSchema = new Schema({
     userType :{
         type:String,
         require:true,
+    },
+   
+    permission : {
+        type : String,
+        require : true,
+    },
+    userName :{
+        type : String,
+        require : true,
     }
 })
 

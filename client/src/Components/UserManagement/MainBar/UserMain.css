@@ -8,3 +8,9 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.search-users {
+  margin-left: 25rem;
+  width: 13rem;
+  height: 2.3rem;
+}
