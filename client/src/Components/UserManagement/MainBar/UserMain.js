@@ -1,14 +1,46 @@
-import React from 'react'
 
 import './UserMain.css'
 
 import UserCard from './UserCards/UserCard'
 import Modal from './UserCards/AddUserModal/modal'
 
+import axios from 'axios'
 
-function UserMain() {
-    return (
-        <div className="mainbar-user-management">
+import React, { Component } from 'react'
+
+export default class UserMain extends Component {
+
+    state = {
+        users:[]
+    }
+
+    componentDidMount = () =>
+    {
+        this.getusers();
+    }
+
+    getusers = () =>
+    {
+        axios.get('getusers').then(
+            res => {
+                const data = res.data;
+                this.setState({users:data})
+                console.log(data)
+            }
+        ).catch(
+            err=> {
+                console.log(err)
+            }
+        )
+    }
+
+  
+
+
+    render() {
+        return (
+            
+                    <div className="mainbar-user-management">
             <div className="nav-user-management d-flex">
                 <h2 className="fw-bold ">Edit Permission and Roles</h2>
                 {/* Search Bar */}
@@ -22,27 +54,17 @@ function UserMain() {
                 </div>
             
             <div className="user-cards">
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
-            <UserCard/>
+                {
+                   this.state.users.map(user=>(
+                       <UserCard username = {user.userName} role={user.userType} permission={user.permission}   />
+                   ))
+                }
             </div>
             
 
             
-        </div>
-    )
+        
+            </div>
+        )
+    }
 }
-
-export default UserMain

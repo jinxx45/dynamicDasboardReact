@@ -2,7 +2,7 @@ import React  from 'react'
 import Modal from 'react-bootstrap/Modal'
 import {Button} from 'react-bootstrap'
 import axios from 'axios'
-import { useHistory } from 'react-router-dom';
+
 
 
 
@@ -32,7 +32,7 @@ function MyVerticallyCenteredModal(props) {
             userType : role.current.value,
             permission : permission.current.value
        }
-       console.log(data);
+       
        axios.post('adduser',data).then(
            res => {console.log(res)}
           
@@ -112,7 +112,7 @@ function MyVerticallyCenteredModal(props) {
         <Modal.Footer>
         
        
-          <Button onClick={props.onHide}>Close</Button>
+          <Button variant="danger" onClick={props.onHide}>Cancel</Button>
         </Modal.Footer>
       </Modal>
     );

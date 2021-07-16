@@ -17,4 +17,6 @@ router.post('/authenticate',actions.authenticate)
 
 router.get('/getinfo',actions.getinfo)
 
+router.get('/getusers',actions.getUsers)
+
 module.exports = router

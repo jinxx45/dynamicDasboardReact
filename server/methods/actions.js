@@ -70,7 +70,17 @@ var functions=
         else {
             return res.json({success: false, msg: 'No Headers'})
         }
-    }
+    },
+   getUsers: function(req,res)
+   {
+       User.find(
+           {},function(err,docs){
+            if(err) res.json(err)
+            else res.json(docs)
+           }
+          
+       )
+   }
 }
 
 
