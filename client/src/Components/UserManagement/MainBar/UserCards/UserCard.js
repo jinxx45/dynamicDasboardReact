@@ -77,7 +77,12 @@ switch (props.permission) {
 
 })()}
             </p>
-
+        
+            <div className="button-group-user-card d-flex my-2">
+                <button className="btn btn-info mx-3">Edit</button>
+                <button className="btn btn-danger mx-3">Delete</button>
+            </div>
+            
         </div>
     )
 }

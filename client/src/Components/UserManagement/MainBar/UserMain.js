@@ -25,7 +25,7 @@ export default class UserMain extends Component {
             res => {
                 const data = res.data;
                 this.setState({users:data})
-                console.log(data)
+              
             }
         ).catch(
             err=> {

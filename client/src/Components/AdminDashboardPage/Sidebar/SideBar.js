@@ -13,6 +13,11 @@ function SideBar(props) {
         history.push('/user-management');
     }
 
+    const gotoManageDashboard = () =>
+    {
+      history.push('/manage-dashboard');
+    }
+
     
    
     return (
@@ -36,10 +41,13 @@ function SideBar(props) {
         </Item>
         </div>
      
+        <div onClick={gotoManageDashboard} >
         <Item bgColor='#ADD8E6'>
           <Icon><i className="fas fa-chart-line"/></Icon>
           Manage KPI Dashboard
         </Item>
+        </div>
+        
         <Item bgColor='#ADD8E6'>
           <Icon><i className="fas fa-sitemap"/></Icon>
           About

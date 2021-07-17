@@ -34,7 +34,10 @@ function MyVerticallyCenteredModal(props) {
        }
        
        axios.post('adduser',data).then(
-           res => {console.log(res)}
+           res => {
+             console.log(res)
+             window.alert("User Created Sucessfully")
+          }
           
 
        ).catch(

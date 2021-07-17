@@ -14,6 +14,7 @@ import LandingPage from './Pages/LandingPage/LandingPage.js'
 import Dashboard from "./Pages/Dashboard/Dashboard.js";
 import AdminDashboard from "./Pages/AdminDashboard/AdminDashboard.js";
 import UserManagement from './Pages/UserManagement/UserManagement'
+import ManageDashboard from './Pages/ManageDashboard/ManageDashboard'
 
 
 export default function App() {
@@ -36,6 +37,9 @@ export default function App() {
           </Route>
           <Route path="/user-management">
            <UserManagement/>
+          </Route>
+          <Route path="/manage-dashboard">
+            <ManageDashboard/>
           </Route>
           <Route path="/">
             <LandingPage/>
